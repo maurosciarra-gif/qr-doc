@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Documenti</title>
+</head>
+<body>
 
+<script>
+async function vai() {
+    const code = window.location.hash.substring(1);
+
+    const response = await fetch("database.json");
+    const data = await response.json();
+
+    if(data[code]){
+        window.location.href = data[code];
+    } else {
+        document.body.innerHTML = "❌ Documento non trovato";
+    }
+}
+
+vai();
+</script>
+
+</body>
+</html>
